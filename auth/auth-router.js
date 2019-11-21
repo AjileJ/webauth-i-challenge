@@ -22,8 +22,11 @@ router.post('/register', (req,res) => {
 })
 
 router.post('/login', (req,res) => {
+  console.log(req.body);
   let { username, password } = req.body;
-  Users.findBy({ username })
+  
+  console.log(username, password)
+  Users.findBy( username )
     .first()
     .then(user => {
       console.log('user',user);

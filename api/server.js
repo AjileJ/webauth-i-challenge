@@ -17,7 +17,7 @@ const sessionConfiguration ={
   name:"booger",
   secret:process.env.COOKIE_SECRET || "is it secret? is it safe",
   cookie: {
-    maxAge: 1000 * 60 * 60,
+    maxAge: 1000 * 60 * 60 * 24 * 7 * 4 * 12,
     secure:process.env.NODE_ENV === "development" ? false : true,
     httpOnly: true
   },
@@ -25,7 +25,7 @@ const sessionConfiguration ={
   saveUninitialized:true,
   store: new KnexSessionStorage({
     knex: knexConnection,
-    clearInterval:1000 * 60 * 10,
+    clearInterval:1000 * 60 * 60 * 24 * 7,
     tablename:"user_sessions",
     sidfieldname: "sid",
     createtable:true
